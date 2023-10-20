@@ -1,0 +1,9 @@
+.custom-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 10px;
+}

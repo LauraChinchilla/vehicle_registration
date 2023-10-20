@@ -1,13 +1,12 @@
 /* Estilos para el banner */
 .banner {
-    background-color: #7c52cf;
-    color: black;
-    padding: 40px;
-    text-align: center;
-    font-family: 'Galdeano', sans-serif;
-    font-size: 40px;
+  background-color: #7c52cf;
+  color: black;
+  padding: 40px;
+  text-align: center;
+  font-family: 'Galdeano', sans-serif;
+  font-size: 40px;
 }
 .card:hover {
-    transform: scale(1.05);
-  }
-  
+  transform: scale(1.05);
+}
