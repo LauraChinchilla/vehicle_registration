@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import './VehicleList.css';
-import { FaEdit, FaTrash } from 'react-icons/fa';
-import { Button } from '@chakra-ui/react';
 import axios from 'axios';
+import ModalDeleteVehicle from './ModalDeleteVehicle';
+import ModalEditVehicle from './ModalEditVehicle';
 
 const columns = [
   {
@@ -25,21 +25,13 @@ const columns = [
   {
     name: 'EDITAR',
     cell: row => (
-      <Button>
-        <div className="center-icons">
-          <FaEdit />
-        </div>
-      </Button>
+      <ModalEditVehicle vehicle={row} />
     ),
   },
   {
     name: 'ELIMINAR',
     cell: row => (
-      <Button>
-        <div className="center-icons">
-          <FaTrash />
-        </div>
-      </Button>
+      <ModalDeleteVehicle vehicle={row} />
     ),
   },
 ];
@@ -49,7 +41,7 @@ const VehicleList = () => {
 
   useEffect(() => {
     // Realiza una solicitud GET a tu API para obtener la lista de vehículos
-    axios.get('http://localhost:4000/api/vehiculos')
+    axios.get('http://localhost:4000/api/vehiculos/lista')
       .then((response) => {
         setVehicles(response.data);
       })
@@ -57,8 +49,6 @@ const VehicleList = () => {
         console.error('Error al obtener la lista de vehículos', error);
       });
   }, []);
-
-
 
   return (
     <>
@@ -75,4 +65,3 @@ const VehicleList = () => {
 };
 
 export default VehicleList;
-
