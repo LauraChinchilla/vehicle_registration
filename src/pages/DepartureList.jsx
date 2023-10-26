@@ -11,7 +11,7 @@ import {
 
 export default function VehicleRegistration() {
   return (
-    <Center h="80vh">
+    <Center mt={8}>
       <Box
         p={8}
         borderWidth={1}

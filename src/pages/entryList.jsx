@@ -11,7 +11,7 @@ import {
 
 export default function VehicleRegistration() {
   return (
-    <Center h="80vh">
+    <Center>
       <Box
         p={8}
         borderWidth={1}
@@ -19,6 +19,7 @@ export default function VehicleRegistration() {
         boxShadow="md"
         width="400px"
         bgColor="white"
+        mt={8}
       >
         <FormControl isRequired>
           <FormLabel>Vehiculo</FormLabel>

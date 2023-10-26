@@ -1,8 +1,10 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import './VehicleList.css';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Button } from '@chakra-ui/react';
+import axios from 'axios';
 
 const columns = [
   {
@@ -42,32 +44,35 @@ const columns = [
   },
 ];
 
-const data = [
-  { marca: 'Toyota', modelo: 'Camry', placa: 'ABC123', id: 1 },
-  { marca: 'Honda', modelo: 'Civic', placa: 'XYZ456', id: 2 },
-];
-
-const customStyles = {
-  headCells: {
-    style: {
-      fontSize: '13px',
-      fontWeight: 'bold',
-    },
-  },
-};
-
 const VehicleList = () => {
+  const [vehicles, setVehicles] = useState([]);
+
+  useEffect(() => {
+    // Realiza una solicitud GET a tu API para obtener la lista de vehículos
+    axios.get('http://localhost:4000/api/vehiculos')
+      .then((response) => {
+        setVehicles(response.data);
+      })
+      .catch((error) => {
+        console.error('Error al obtener la lista de vehículos', error);
+      });
+  }, []);
+
+
+
   return (
-    <div className="custom-table">
-      <DataTable
-        title="Lista de Vehiculos"
-        columns={columns}
-        data={data}
-        pagination
-        customStyles={customStyles}
-      />
-    </div>
+    <>
+      <div className="custom-table">
+        <DataTable
+          title="Lista de Vehiculos"
+          columns={columns}
+          data={vehicles}
+          pagination
+        />
+      </div>
+    </>
   );
 };
 
 export default VehicleList;
+
