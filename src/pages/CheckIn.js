@@ -67,7 +67,7 @@ const CheckIn = () => {
           onClick={() => {
             window.location.href = '/entry-list';
           }}
-          colorScheme="blue"
+          colorScheme="teal"
           mr="6"
         >
           Registrar Entrada

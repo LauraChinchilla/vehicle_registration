@@ -178,13 +178,13 @@ export default function ExitList() {
           </InputGroup>
         </FormControl>
 
-        <Button mt={6} colorScheme="blue" isFullWidth onClick={handleSubmit}>
-          Registrar Salida
+        <Button mt={6} colorScheme="teal" isFullWidth onClick={handleSubmit}>
+          Guardar
         </Button>
         <HStack justifyContent="flex-end" mt={5}>
           <Link
             mt={2}
-            color="blue.500"
+            color="teal"
             textAlign="right"
             onClick={() => {
               window.location.href = '/checkOut';

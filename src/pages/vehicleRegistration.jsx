@@ -126,17 +126,17 @@ export default function VehicleRegistration({ onVehicleAdded }) {
 
         <Button
           mt={6}
-          colorScheme="blue"
+          colorScheme="teal"
           isFullWidth
           onClick={submitNewVehicle}
         >
-          Registrar Vehículo
+          Guardar
         </Button>
 
         <HStack justifyContent="flex-end" mt={5}>
           <Link
             mt={2}
-            color="blue.500"
+            color="teal"
             textAlign="right"
             onClick={() => {
               window.location.href = '/vehicle-list';

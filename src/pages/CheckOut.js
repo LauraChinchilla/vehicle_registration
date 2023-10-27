@@ -67,7 +67,7 @@ const CheckOut = () => {
           onClick={() => {
             window.location.href = '/departure-list';
           }}
-          colorScheme="blue"
+          colorScheme="teal"
           mr="6"
         >
           Registrar Salida

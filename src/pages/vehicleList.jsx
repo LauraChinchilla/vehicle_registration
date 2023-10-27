@@ -57,7 +57,7 @@ const VehicleList = () => {
           onClick={() => {
             window.location.href = '/vehicle-registration';
           }}
-          colorScheme="blue"
+          colorScheme="teal"
           mr="6"
         >
           Registrar Vehiculo

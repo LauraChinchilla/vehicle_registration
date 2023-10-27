@@ -45,7 +45,7 @@ export default function Home() {
           >
             <Stack direction="row" alignItems="center">
               <CardHeader
-                backgroundColor="blue.500"
+                backgroundColor="#20b2aa"
                 borderRadius="md"
                 padding={3}
               >
@@ -82,7 +82,7 @@ export default function Home() {
           >
             <Stack direction="row" alignItems="center">
               <CardHeader
-                backgroundColor="blue.500"
+                backgroundColor="#20b2aa"
                 borderRadius="md"
                 padding={3}
               >
@@ -118,7 +118,7 @@ export default function Home() {
           >
             <Stack direction="row" alignItems="center">
               <CardHeader
-                backgroundColor="blue.500"
+                backgroundColor="#20b2aa"
                 borderRadius="md"
                 padding={3}
               >
@@ -155,7 +155,7 @@ export default function Home() {
           >
             <Stack direction="row" alignItems="center">
               <CardHeader
-                backgroundColor="blue.500"
+                backgroundColor="#20b2aa"
                 borderRadius="md"
                 padding={3}
               >
@@ -192,7 +192,7 @@ export default function Home() {
           >
             <Stack direction="row" alignItems="center">
               <CardHeader
-                backgroundColor="blue.500"
+                backgroundColor="#20b2aa"
                 borderRadius="md"
                 padding={3}
               >
@@ -229,7 +229,7 @@ export default function Home() {
           >
             <Stack direction="row" alignItems="center">
               <CardHeader
-                backgroundColor="blue.500"
+                backgroundColor="#20b2aa"
                 borderRadius="md"
                 padding={3}
               >
