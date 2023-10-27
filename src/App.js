@@ -11,6 +11,7 @@ import DepartureList from './pages/DepartureList';
 import VehicleList from './pages/vehicleList';
 import CheckIn from './pages/CheckIn';
 import CheckOut from './pages/CheckOut';
+import Nav from './Navbar';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -36,6 +37,8 @@ function App() {
   }, []);
 
   return (
+    <>
+    <Nav />
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
         {currentPath === '/' && <Home />}
@@ -50,6 +53,7 @@ function App() {
 
       </Box>
     </ChakraProvider>
+    </>
   );
 }
 

@@ -27,7 +27,7 @@ export default function VehicleRegistration({ onVehicleAdded }) {
   const [alertContent, setAlertContent] = useState('');
   const [alertType, setAlertType] = useState('');
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewVehicle({
       ...newVehicle,
@@ -70,6 +70,11 @@ export default function VehicleRegistration({ onVehicleAdded }) {
       console.error('Error al registrar el vehículo', error);
       displayAlert('error', 'No se pudo registrar el vehículo.');
     }
+  };
+
+  const handleCancel = () => {
+    // Redirigir al inicio (home)
+    window.location.href = '/';
   };
 
   return (
@@ -124,14 +129,20 @@ export default function VehicleRegistration({ onVehicleAdded }) {
           </InputGroup>
         </FormControl>
 
-        <Button
-          mt={6}
-          colorScheme="teal"
-          isFullWidth
-          onClick={submitNewVehicle}
-        >
-          Guardar
-        </Button>
+        <HStack justifyContent="space-between" mt={6}>
+          <Button
+            onClick={handleCancel}
+          >
+            Cancelar
+          </Button>
+
+          <Button
+            colorScheme="teal"
+            onClick={submitNewVehicle}
+          >
+            Guardar
+          </Button>
+        </HStack>
 
         <HStack justifyContent="flex-end" mt={5}>
           <Link

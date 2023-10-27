@@ -101,6 +101,11 @@ export default function ExitList() {
     }
   };
 
+  const handleCancel = () => {
+    // Redirigir al inicio (home)
+    window.location.href = '/';
+  };
+
   return (
     <Center>
       <Box
@@ -118,18 +123,29 @@ export default function ExitList() {
         </Text>
         <FormControl isRequired>
           <FormLabel>Vehículo</FormLabel>
-          <Select
-            name="placa"
-            value={formData.placa}
-            onChange={handleInputChange}
-          >
-            <option value="">Selecciona una placa</option>
-            {vehicleOptions.map(vehicle => (
-              <option key={vehicle.value} value={vehicle.value}>
-                {vehicle.label}
-              </option>
-            ))}
-          </Select>
+          <HStack justifyContent="space-between">
+            <Select
+              name="placa"
+              value={formData.placa}
+              onChange={handleInputChange}
+            >
+              <option value="">Selecciona una placa</option>
+              {vehicleOptions.map(vehicle => (
+                <option key={vehicle.value} value={vehicle.value}>
+                  {vehicle.label}
+                </option>
+              ))}
+            </Select>
+            <Button
+              onClick={() => {
+                window.location.href = '/vehicle-registration';
+              }}
+              colorScheme="teal"
+              mr="6"
+            >
+              Registrar
+            </Button>
+          </HStack>
         </FormControl>
 
         <FormControl isRequired mt={4}>
@@ -178,9 +194,13 @@ export default function ExitList() {
           </InputGroup>
         </FormControl>
 
-        <Button mt={6} colorScheme="teal" isFullWidth onClick={handleSubmit}>
-          Guardar
-        </Button>
+        <HStack justifyContent="space-between" mt={6}>
+          <Button onClick={handleCancel}>Cancelar</Button>
+
+          <Button colorScheme="teal" isFullWidth onClick={handleSubmit}>
+            Guardar
+          </Button>
+        </HStack>
         <HStack justifyContent="flex-end" mt={5}>
           <Link
             mt={2}

@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
+import eventBus from './eventBus';
 
 export default function ModalDeleteVehicle({ vehicle, onVehicleDeleted }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,6 +33,7 @@ export default function ModalDeleteVehicle({ vehicle, onVehicleDeleted }) {
         displayAlert('success', 'Vehículo eliminado con éxito');
         setTimeout(() => {
           onClose(); // Cerrar el modal después de eliminar
+          eventBus.emit('vehicleDeleted', vehicle.id); 
         }, 2000); // Cerrar el modal después de 2 segundos
       })
       .catch(error => {
@@ -73,7 +75,7 @@ export default function ModalDeleteVehicle({ vehicle, onVehicleDeleted }) {
               </Alert>
             )}
 
-            <FormLabel>¿Deseas eliminar el vehículo?</FormLabel>
+            <FormLabel>¿Deseas eliminar el vehículo con placa {vehicle.placa}?</FormLabel>
           </ModalBody>
 
           <ModalFooter>

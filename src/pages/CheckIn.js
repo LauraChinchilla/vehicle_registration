@@ -5,6 +5,7 @@ import axios from 'axios';
 import ModalDeleteEntry from './ModalDeleteEntry';
 // import ModalEditEntry from './ModalEditEntry,';
 import { Button, Flex, Text } from '@chakra-ui/react';
+import eventBus from './eventBus';
 
 const columns = [
   {
@@ -56,6 +57,20 @@ const CheckIn = () => {
         console.error('Error al obtener la lista de entradas', error);
       });
   }, []);
+  useEffect(() => {
+    const handleEntryDeleted = deletedEntryId => {
+      const updatedEntries = entries.filter(
+        entry => entry.id !== deletedEntryId
+      );
+      setEntries(updatedEntries);
+    };
+
+    eventBus.on('entryDeleted', handleEntryDeleted);
+
+    return () => {
+      eventBus.off('entryDeleted', handleEntryDeleted);
+    };
+  }, [entries]);
 
   return (
     <Flex direction="column" padding={5}>

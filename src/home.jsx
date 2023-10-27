@@ -11,7 +11,6 @@ import {
   Grid,
 } from '@chakra-ui/react';
 import { FaClipboard, FaSignInAlt, FaSignOutAlt, FaList } from 'react-icons/fa';
-import Nav from './Navbar';
 
 export default function Home() {
   const navigateTo = path => {
@@ -21,7 +20,6 @@ export default function Home() {
 
   return (
     <>
-      <Nav />
       <Grid
         templateColumns="repeat(2, 1fr)"
         gap={4}

@@ -13,12 +13,12 @@ import {
   FormControl,
   Input,
   InputGroup,
-  InputLeftAddon,
   Alert,
   AlertIcon,
 } from '@chakra-ui/react';
 import { FaEdit } from 'react-icons/fa';
 import axios from 'axios';
+import eventBus from './eventBus'; 
 
 export default function ModalEditVehicle({ vehicle, onVehicleUpdated }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -57,6 +57,7 @@ export default function ModalEditVehicle({ vehicle, onVehicleUpdated }) {
         displayAlert('success', 'Vehículo actualizado con éxito');
         setTimeout(() => {
           onClose();
+          eventBus.emit('vehicleUpdated', vehicleID, editedVehicle); // Emitir el evento
         }, 2000); // Cerrar el modal después de 2 segundos
       })
       .catch(error => {
@@ -124,7 +125,6 @@ export default function ModalEditVehicle({ vehicle, onVehicleUpdated }) {
             <FormControl isRequired mt={4}>
               <FormLabel>Placa</FormLabel>
               <InputGroup>
-                <InputLeftAddon children="Placa" />
                 <Input
                   placeholder="Número de placa"
                   name="placa"

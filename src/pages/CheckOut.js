@@ -5,6 +5,7 @@ import axios from 'axios';
 import ModalDeleteExit from './ModalDeleteExit';
 // import ModalEditExit from './ModalEditExit';
 import { Button, Flex, Text } from '@chakra-ui/react';
+import eventBus from './eventBus';
 
 const columns = [
   {
@@ -56,6 +57,19 @@ const CheckOut = () => {
         console.error('Error al obtener la lista de salidas', error);
       });
   }, []);
+
+  useEffect(() => {
+    const handleExitDeleted = deletedExitId => {
+      const updatedExits = exits.filter(exit => exit.id !== deletedExitId);
+      setExits(updatedExits);
+    };
+
+    eventBus.on('exitDeleted', handleExitDeleted);
+
+    return () => {
+      eventBus.off('exitDeleted', handleExitDeleted);
+    };
+  }, [exits]);
 
   return (
     <Flex direction="column" padding={5}>
