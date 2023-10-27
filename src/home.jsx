@@ -27,6 +27,7 @@ export default function Home() {
         gap={4}
         width="100%"
         justifyContent="center"
+        marginBottom="20px"
       >
         <Link to="/vehicle-registration">
           <Card
@@ -64,43 +65,7 @@ export default function Home() {
           </Card>
         </Link>
 
-        <Link to="/entry-list">
-          <Card
-            mt={4}
-            padding={4}
-            maxW="580px"
-            borderWidth="1px"
-            borderColor="gray.200"
-            borderRadius="md"
-            transition="transform 0.2s"
-            marginLeft={6}
-            _hover={{ transform: 'scale(1.05)' }}
-            cursor="pointer"
-            onClick={() => navigateTo('/entry-list')}
-          >
-            <Stack direction="row" alignItems="center">
-              <CardHeader
-                backgroundColor="blue.500"
-                borderRadius="md"
-                padding={3}
-              >
-                <Stack direction="row" alignItems="center">
-                  <Icon as={FaSignInAlt} boxSize={6} color="white" />{' '}
-                </Stack>
-              </CardHeader>
-              <CardBody>
-                <Heading size="sm" textAlign="left">
-                  Entradas de Vehiculos
-                </Heading>
-                <Text fontSize="sm" py="2" textAlign="left">
-                  Revisa las últimas entradas de los Vehículos
-                </Text>
-              </CardBody>
-            </Stack>
-          </Card>
-        </Link>
-
-        <Link to="/departure-list">
+        <Link to="/vehicle-list">
           <Card
             mt={4}
             padding={4}
@@ -136,6 +101,80 @@ export default function Home() {
             </Stack>
           </Card>
         </Link>
+
+        <Link to="/entry-list">
+          <Card
+            mt={4}
+            padding={4}
+            maxW="580px"
+            borderWidth="1px"
+            borderColor="gray.200"
+            borderRadius="md"
+            transition="transform 0.2s"
+            marginLeft={6}
+            _hover={{ transform: 'scale(1.05)' }}
+            cursor="pointer"
+            onClick={() => navigateTo('/entry-list')}
+          >
+            <Stack direction="row" alignItems="center">
+              <CardHeader
+                backgroundColor="blue.500"
+                borderRadius="md"
+                padding={3}
+              >
+                <Stack direction="row" alignItems="center">
+                  <Icon as={FaSignInAlt} boxSize={6} color="white" />{' '}
+                </Stack>
+              </CardHeader>
+              <CardBody>
+                <Heading size="sm" textAlign="left">
+                  Registrar Entrada
+                </Heading>
+                <Text fontSize="sm" py="2" textAlign="left">
+                  Agrega la informacion de una entrada de vehiculo
+                </Text>
+              </CardBody>
+            </Stack>
+          </Card>
+        </Link>
+
+        <Link to="/checkIn">
+          <Card
+            mt={4}
+            padding={4}
+            maxW="580px"
+            borderWidth="1px"
+            borderColor="gray.200"
+            borderRadius="md"
+            transition="transform 0.2s"
+            marginLeft={6}
+            marginRight={6}
+            _hover={{ transform: 'scale(1.05)' }}
+            cursor="pointer"
+            onClick={() => navigateTo('/checkIn')}
+          >
+            <Stack direction="row" alignItems="center">
+              <CardHeader
+                backgroundColor="blue.500"
+                borderRadius="md"
+                padding={3}
+              >
+                <Stack direction="row" alignItems="center">
+                  <Icon as={FaList} boxSize={6} color="white" />{' '}
+                </Stack>
+              </CardHeader>
+              <CardBody>
+                <Heading size="sm" textAlign="left">
+                  Lista de Entradas
+                </Heading>
+                <Text fontSize="sm" py="2" textAlign="left">
+                  Ver lista completa de entradas de vehiculos
+                </Text>
+              </CardBody>
+            </Stack>
+          </Card>
+        </Link>
+
         <Link to="/departure-list">
           <Card
             mt={4}
@@ -163,10 +202,47 @@ export default function Home() {
               </CardHeader>
               <CardBody>
                 <Heading size="sm" textAlign="left">
-                  Salidas de Vehiculos
+                  Registrar Salida
                 </Heading>
                 <Text fontSize="sm" py="2" textAlign="left">
-                  Revisa las últimas salidas de los Vehículos
+                  Agrega la informacion de una salida de vehiculo
+                </Text>
+              </CardBody>
+            </Stack>
+          </Card>
+        </Link>
+
+        <Link to="/checkOut">
+          <Card
+            mt={4}
+            padding={4}
+            maxW="580px"
+            borderWidth="1px"
+            borderColor="gray.200"
+            borderRadius="md"
+            transition="transform 0.2s"
+            marginLeft={6}
+            marginRight={6}
+            _hover={{ transform: 'scale(1.05)' }}
+            cursor="pointer"
+            onClick={() => navigateTo('/checkOut')}
+          >
+            <Stack direction="row" alignItems="center">
+              <CardHeader
+                backgroundColor="blue.500"
+                borderRadius="md"
+                padding={3}
+              >
+                <Stack direction="row" alignItems="center">
+                  <Icon as={FaList} boxSize={6} color="white" />{' '}
+                </Stack>
+              </CardHeader>
+              <CardBody>
+                <Heading size="sm" textAlign="left">
+                  Lista de Salidas
+                </Heading>
+                <Text fontSize="sm" py="2" textAlign="left">
+                  Ver lista completa de salidas de vehiculos
                 </Text>
               </CardBody>
             </Stack>

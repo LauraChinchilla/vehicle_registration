@@ -9,7 +9,7 @@ import {
   Center,
 } from '@chakra-ui/react';
 
-export default function VehicleRegistration() {
+export default function EntryList() {
   return (
     <Center>
       <Box
