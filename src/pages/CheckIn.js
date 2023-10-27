@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import './VehicleList.css';
 import axios from 'axios';
+import ModalDeleteEntry from './ModalDeleteEntry';
 
 const columns = [
   {
@@ -28,6 +29,12 @@ const columns = [
     name: 'KILOMETRAJE',
     selector: 'kilometraje',
     sortable: true,
+  },
+  {
+    name: 'ELIMINAR',
+    cell: row => (
+      <ModalDeleteEntry entrada={row} />
+    ),
   },
 ];
 

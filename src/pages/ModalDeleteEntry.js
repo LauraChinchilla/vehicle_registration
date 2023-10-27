@@ -16,26 +16,26 @@ import {
 import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
 
-export default function ModalDeleteVehicle({ vehicle, onVehicleDeleted }) {
+export default function ModalDeleteVehicle({ entrada }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [alert, setAlert] = useState({ type: '', message: '' });
 
   const handleDelete = () => {
     // Depura la URL antes de realizar la solicitud DELETE
-    const vehicleID = vehicle.id;
-    const deleteURL = `http://localhost:4000/api/vehiculos/delete/${vehicleID}`;
+    const entradaID = entrada.id;
+    const deleteURL = `http://localhost:4000/api/entradas/delete/${entradaID}`;
 
     // Realizar la solicitud DELETE al servidor
     axios
       .delete(deleteURL)
       .then(response => {
-        displayAlert('success', 'Vehículo eliminado con éxito');
+        displayAlert('success', 'Entrada eliminada con éxito');
         setTimeout(() => {
           onClose(); // Cerrar el modal después de eliminar
         }, 2000); // Cerrar el modal después de 2 segundos
       })
       .catch(error => {
-        displayAlert('error', 'Error al eliminar el vehículo');
+        displayAlert('error', 'Error al eliminar el entrada');
       });
   };
 
@@ -57,7 +57,7 @@ export default function ModalDeleteVehicle({ vehicle, onVehicleDeleted }) {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Eliminar Vehículo</ModalHeader>
+          <ModalHeader>Eliminar Entrada</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             {alert.type === 'success' && (
@@ -73,7 +73,7 @@ export default function ModalDeleteVehicle({ vehicle, onVehicleDeleted }) {
               </Alert>
             )}
 
-            <FormLabel>¿Deseas eliminar el vehículo?</FormLabel>
+            <FormLabel>¿Deseas eliminar la Entrada?</FormLabel>
           </ModalBody>
 
           <ModalFooter>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import './VehicleList.css';
 import axios from 'axios';
+import ModalDeleteExit from './ModalDeleteExit';
 
 const columns = [
   {
@@ -29,6 +30,10 @@ const columns = [
     selector: 'kilometraje',
     sortable: true,
   },
+  {
+    name: 'ELIMINAR',
+    cell: row => <ModalDeleteExit salida={row} />,
+  },
 ];
 
 const CheckOut = () => {
@@ -36,11 +41,12 @@ const CheckOut = () => {
 
   useEffect(() => {
     // Realiza una solicitud GET a tu API para obtener la lista de salidas
-    axios.get('http://localhost:4000/api/salidas/lista')
-      .then((response) => {
+    axios
+      .get('http://localhost:4000/api/salidas/lista')
+      .then(response => {
         setExits(response.data);
       })
-      .catch((error) => {
+      .catch(error => {
         console.error('Error al obtener la lista de salidas', error);
       });
   }, []);
@@ -51,7 +57,7 @@ const CheckOut = () => {
         <DataTable
           title="Lista de Salidas"
           columns={columns}
-          data={exits} 
+          data={exits}
           pagination
         />
       </div>
@@ -60,4 +66,3 @@ const CheckOut = () => {
 };
 
 export default CheckOut;
-
