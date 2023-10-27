@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const columns = [
   {
-    name: 'PLACA',
+    name: 'VEHICULO',
     selector: 'placa',
     sortable: true,
   },

@@ -6,7 +6,7 @@ import axios from 'axios';
 const columns = [
   {
     name: 'VEHICULO',
-    selector: 'vehiculo_id',
+    selector: 'placa',
     sortable: true,
   },
   {
@@ -36,11 +36,12 @@ const CheckIn = () => {
 
   useEffect(() => {
     // Realiza una solicitud GET a tu API para obtener la lista de entradas
-    axios.get('http://localhost:4000/api/entradas/lista')
-      .then((response) => {
+    axios
+      .get('http://localhost:4000/api/entradas/lista')
+      .then(response => {
         setEntries(response.data);
       })
-      .catch((error) => {
+      .catch(error => {
         console.error('Error al obtener la lista de entradas', error);
       });
   }, []);
@@ -60,4 +61,3 @@ const CheckIn = () => {
 };
 
 export default CheckIn;
-
