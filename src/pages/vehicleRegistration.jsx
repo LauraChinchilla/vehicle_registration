@@ -6,13 +6,15 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  InputLeftAddon,
   Button,
   Center,
   Alert,
   AlertIcon,
   AlertTitle,
   CloseButton,
+  Link,
+  HStack,
+  Text, // Agregamos HStack para alinear elementos horizontalmente
 } from '@chakra-ui/react';
 
 export default function VehicleRegistration({ onVehicleAdded }) {
@@ -25,7 +27,7 @@ export default function VehicleRegistration({ onVehicleAdded }) {
   const [alertContent, setAlertContent] = useState('');
   const [alertType, setAlertType] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     const { name, value } = e.target;
     setNewVehicle({
       ...newVehicle,
@@ -79,7 +81,11 @@ export default function VehicleRegistration({ onVehicleAdded }) {
         boxShadow="md"
         width="400px"
         bgColor="white"
+        id="vehicle-registration"
       >
+        <Text fontSize="xl" ml="6" fontWeight="bold">
+          Registrar Vehiculo
+        </Text>
         <FormControl isRequired>
           <FormLabel>Marca</FormLabel>
           <Input
@@ -107,7 +113,6 @@ export default function VehicleRegistration({ onVehicleAdded }) {
         <FormControl isRequired mt={4}>
           <FormLabel>Placa</FormLabel>
           <InputGroup>
-            <InputLeftAddon children="Placa" />
             <Input
               placeholder="Número de placa"
               name="placa"
@@ -127,6 +132,19 @@ export default function VehicleRegistration({ onVehicleAdded }) {
         >
           Registrar Vehículo
         </Button>
+
+        <HStack justifyContent="flex-end" mt={5}>
+          <Link
+            mt={2}
+            color="blue.500"
+            textAlign="right"
+            onClick={() => {
+              window.location.href = '/vehicle-list';
+            }}
+          >
+            Ver lista de Vehiculos
+          </Link>
+        </HStack>
       </Box>
       {showAlert && (
         <Box
@@ -146,4 +164,3 @@ export default function VehicleRegistration({ onVehicleAdded }) {
     </Center>
   );
 }
-

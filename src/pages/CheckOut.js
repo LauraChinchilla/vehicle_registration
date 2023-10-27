@@ -3,6 +3,8 @@ import DataTable from 'react-data-table-component';
 import './VehicleList.css';
 import axios from 'axios';
 import ModalDeleteExit from './ModalDeleteExit';
+// import ModalEditExit from './ModalEditExit';
+import { Button, Flex, Text } from '@chakra-ui/react';
 
 const columns = [
   {
@@ -30,6 +32,10 @@ const columns = [
     selector: 'kilometraje',
     sortable: true,
   },
+  // {
+  //   name: 'EDITAR',
+  //   cell: row => <ModalEditExit exit={row} />,
+  // },
   {
     name: 'ELIMINAR',
     cell: row => <ModalDeleteExit salida={row} />,
@@ -52,16 +58,29 @@ const CheckOut = () => {
   }, []);
 
   return (
-    <>
+    <Flex direction="column" padding={5}>
+      <Flex justify="space-between" align="center">
+        <Text fontSize="xl" ml="6" fontWeight="bold">
+          Lista de Salidas
+        </Text>
+        <Button
+          onClick={() => {
+            window.location.href = '/departure-list';
+          }}
+          colorScheme="blue"
+          mr="6"
+        >
+          Registrar Salida
+        </Button>
+      </Flex>
       <div className="custom-table">
         <DataTable
-          title="Lista de Salidas"
           columns={columns}
           data={exits}
           pagination
         />
       </div>
-    </>
+    </Flex>
   );
 };
 

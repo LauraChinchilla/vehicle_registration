@@ -3,6 +3,8 @@ import DataTable from 'react-data-table-component';
 import './VehicleList.css';
 import axios from 'axios';
 import ModalDeleteEntry from './ModalDeleteEntry';
+// import ModalEditEntry from './ModalEditEntry,';
+import { Button, Flex, Text } from '@chakra-ui/react';
 
 const columns = [
   {
@@ -30,11 +32,13 @@ const columns = [
     selector: 'kilometraje',
     sortable: true,
   },
+  // {
+  //   name: 'EDITAR',
+  //   cell: row => <ModalEditEntry entry={row} />,
+  // },
   {
     name: 'ELIMINAR',
-    cell: row => (
-      <ModalDeleteEntry entrada={row} />
-    ),
+    cell: row => <ModalDeleteEntry entrada={row} />,
   },
 ];
 
@@ -54,16 +58,25 @@ const CheckIn = () => {
   }, []);
 
   return (
-    <>
+    <Flex direction="column" padding={5}>
+      <Flex justify="space-between" align="center">
+        <Text fontSize="xl" ml="6" fontWeight="bold">
+          Lista de Entradas
+        </Text>
+        <Button
+          onClick={() => {
+            window.location.href = '/entry-list';
+          }}
+          colorScheme="blue"
+          mr="6"
+        >
+          Registrar Entrada
+        </Button>
+      </Flex>
       <div className="custom-table">
-        <DataTable
-          title="Lista de Entradas"
-          columns={columns}
-          data={entries}
-          pagination
-        />
+        <DataTable columns={columns} data={entries} pagination />
       </div>
-    </>
+    </Flex>
   );
 };
 

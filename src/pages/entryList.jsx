@@ -14,6 +14,9 @@ import {
   AlertIcon,
   AlertTitle,
   CloseButton,
+  HStack,
+  Link,
+  Text,
 } from '@chakra-ui/react';
 
 export default function EntryList({ onEntryAdded }) {
@@ -106,6 +109,7 @@ export default function EntryList({ onEntryAdded }) {
   return (
     <Center>
       <Box
+        id="entry-list"
         p={8}
         borderWidth={1}
         borderRadius="md"
@@ -114,8 +118,11 @@ export default function EntryList({ onEntryAdded }) {
         bgColor="white"
         mt={8}
       >
+        <Text fontSize="xl" ml="6" fontWeight="bold">
+          Registrar Entrada
+        </Text>
         <FormControl isRequired>
-          <FormLabel>Vehículo</FormLabel>
+          <FormLabel >Vehículo</FormLabel>
           <Select
             name="placa"
             value={formData.placa}
@@ -179,6 +186,18 @@ export default function EntryList({ onEntryAdded }) {
         <Button mt={6} colorScheme="blue" isFullWidth onClick={handleSubmit}>
           Registrar Entrada
         </Button>
+        <HStack justifyContent="flex-end" mt={5}>
+          <Link
+            mt={2}
+            color="blue.500"
+            textAlign="right"
+            onClick={() => {
+              window.location.href = '/checkIn';
+            }}
+          >
+            Ver lista de Entradas
+          </Link>
+        </HStack>
       </Box>
       {showAlert && (
         <Box

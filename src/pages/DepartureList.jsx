@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; 
+import axios from 'axios';
 
 import {
   Box,
@@ -14,6 +14,9 @@ import {
   AlertIcon,
   AlertTitle,
   CloseButton,
+  HStack,
+  Link,
+  Text,
 } from '@chakra-ui/react';
 
 export default function ExitList() {
@@ -108,7 +111,11 @@ export default function ExitList() {
         width="400px"
         bgColor="white"
         mt={8}
+        id="departure-list"
       >
+        <Text fontSize="xl" ml="6" fontWeight="bold">
+          Registrar Salida
+        </Text>
         <FormControl isRequired>
           <FormLabel>Vehículo</FormLabel>
           <Select
@@ -174,6 +181,18 @@ export default function ExitList() {
         <Button mt={6} colorScheme="blue" isFullWidth onClick={handleSubmit}>
           Registrar Salida
         </Button>
+        <HStack justifyContent="flex-end" mt={5}>
+          <Link
+            mt={2}
+            color="blue.500"
+            textAlign="right"
+            onClick={() => {
+              window.location.href = '/checkOut';
+            }}
+          >
+            Ver lista de Salidas
+          </Link>
+        </HStack>
       </Box>
       {showAlert && (
         <Box
